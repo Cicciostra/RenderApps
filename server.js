@@ -35,10 +35,10 @@ function ensureAuth(appName) {
 }
  
 app.get("/app1", ensureAuth("app1"), (req, res) => {
-  res.send('<!DOCTYPE html>
-<html lang="it">
+  res.send("<!DOCTYPE html>
+<html lang='it'>
 <head>
-<meta charset="UTF-8">
+<meta charset='UTF-8'>
 <title>Pagina Colorata</title>
 <style>
         body {
@@ -48,7 +48,6 @@ app.get("/app1", ensureAuth("app1"), (req, res) => {
             background: linear-gradient(135deg, #ff9a9e, #fecfef, #fad0c4);
             color: #333;
         }
- 
         header {
             background-color: #ff6f61;
             color: white;
@@ -57,7 +56,6 @@ app.get("/app1", ensureAuth("app1"), (req, res) => {
             font-size: 2em;
             letter-spacing: 1px;
         }
- 
         .container {
             margin: 40px auto;
             width: 80%;
@@ -66,11 +64,9 @@ app.get("/app1", ensureAuth("app1"), (req, res) => {
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
- 
         h2 {
             color: #ff6f61;
         }
- 
         button {
             padding: 12px 20px;
             font-size: 1em;
@@ -81,30 +77,25 @@ app.get("/app1", ensureAuth("app1"), (req, res) => {
             cursor: pointer;
             transition: 0.3s;
         }
- 
         button:hover {
             background-color: #e05850;
         }
 </style>
 </head>
- 
 <body>
- 
     <header>
         🌈 Pagina HTML Colorata 🌈
 </header>
- 
-    <div class="container">
+    <div class='container'>
 <h2>Benvenuta!</h2>
 <p>
             Questa è una pagina HTML colorata con un design semplice e moderno.
             Puoi modificare il testo, i colori e lo stile come preferisci.
 </p>
- 
         <button>Cliccami!</button>
 </div>
-        <h1>APP 1</h1><a href='/app2'>Vai ad App2</a>
-         <a href='/app3'>Vai ad App3</a>');
+         <h1>APP 1</h1><a href='/app2'>Vai ad App2</a>
+         <a href='/app3'>Vai ad App3</a>");
 });
  
 app.get("/app2", ensureAuth("app2"), (req, res) => {
@@ -133,4 +124,5 @@ app.post("/app3/acs",
  
 
 app.listen(process.env.PORT || 3000);
+
 
