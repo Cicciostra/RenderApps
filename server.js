@@ -18,7 +18,9 @@ passport.use(new SamlStrategy(
   {
     entryPoint: process.env.SAML_ENTRY_POINT,
     issuer: process.env.SAML_ISSUER,
-    cert: process.env.SAML_CERT
+    cert: process.env.SAML_CERT,
+    callbackUrl: process.env.BASE_URL + "/app1/acs", // default
+    protocol: "https://"
   },
   (profile, done) => done(null, profile)
 ));
@@ -60,4 +62,5 @@ app.post("/app3/acs",
   (req, res) => res.redirect("/app3")
 );
  
+
 app.listen(process.env.PORT || 3000);
