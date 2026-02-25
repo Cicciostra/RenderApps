@@ -1,0 +1,19 @@
+{
+  "name": "saml-poc",
+  "version": "1.0.0",
+  "main": "index.js",  
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "passport": "^0.7.0",
+    "passport-saml": "^3.2.4"
+  }
+}
