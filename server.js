@@ -58,6 +58,10 @@ app.get("/logout", (req, res) => {
     });
   });
 });
+
+app.get("/logged-out", (req, res) => {
+  res.send("<html lang='it'><head><title>Logout</title><style>body {font-family: Arial, sans-serif;background: linear-gradient(135deg, #6a11cb, #2575fc);height: 100vh;margin: 0;display: flex;justify-content: center;align-items: center;color: white;} .container {background: rgba(255, 255, 255, 0.1);padding: 40px 60px;border-radius: 15px;text-align: center;backdrop-filter: blur(8px);box-shadow: 0px 0px 15px rgba(0,0,0,0.2);} h1 {font-size: 2em;margin-bottom: 20px;} .btn {background-color: #ffffff;color: #2575fc;padding: 12px 25px;border-radius: 8px;text-decoration: none;font-weight: bold;font-size: 1em;transition: 0.3s;} .btn:hover {background-color: #2575fc;color: #ffffff;}</style></head><body> <div class='container'><h1>Sei stato disconnesso!</h1><p>Grazie per aver utilizzato l'applicazione.</p></a><p><a href='/app1'>Cliccami per andare all'App1!</a></p><p><a href='/app2'>Cliccami per andare all'App2!</a></p><p><a href='/app3'>Cliccami per andare all'App3!</a></p></div> </body></html>");
+});
  
 // ACS distinti
 app.post("/app1/acs",
@@ -75,13 +79,14 @@ app.post("/app3/acs",
   (req, res) => res.redirect("/app3")
 );
 
-app.post("/logout/callback", (req, res) => {
+app.all("/logout/callback", (req, res) => {
   req.logout(() => {
-    res.redirect("/");
+    res.redirect("/logged-out");
   });
 });
 
 app.listen(process.env.PORT || 3000);
+
 
 
 
